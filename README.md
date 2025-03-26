@@ -6,7 +6,6 @@
 - [Inspiration](#inspiration)
 - [What It Does](#what-it-does)
 - [How We Built It](#how-we-built-it)
-- [Challenges We Faced](#challenges-we-faced)
 - [How to Run](#how-to-run)
 - [Tech Stack](#tech-stack)
 - [Team](#team)
@@ -14,26 +13,32 @@
 ---
 
 ## 🎯 Introduction
-A brief overview of your project and its purpose. Mention which problem statement are your attempting to solve. Keep it concise and engaging.
-Sample data
+The Dynamic Financial Data Reconciliation System is an advanced, all-in-one solution designed to process financial records, identify anomalies, and empower users with AI-driven insights via an interactive chatbot. Leveraging a microservices architecture, the system incorporates a Flask backend for optimized data processing and a user-friendly Streamlit frontend for seamless interaction.
+ One of its standout features is its flexibility—by utilizing a dynamic configuration file (config.json), the system can effortlessly handle any dataset without the need for hardcoded column names. This adaptability ensures scalability, customization, and broad compatibility with a wide range of financial reconciliation scenarios.
 ## 🎥 Demo
-🔗 [Live Demo](#) (if applicable)  
-📹 [Video Demo](#) (if applicable)  
-🖼️ Screenshots:
-
-![Screenshot 1](link-to-image)
-
-## 💡 Inspiration
-What inspired you to create this project? Describe the problem you're solving.
+🔗 [Live Demo](#) Demo has been placed in the demo folder
 
 ## ⚙️ What It Does
-Explain the key features and functionalities of your project.
+User-friendly Conversational AI (chatbot integration) for reconciling financial records.
+Provides AI-driven chatbot assistance for next-step actions.
+Displays processed reconciliation results, including anomalies.
+Recommends next steps/actions.
+Agent-AI can generate code and run code to take specific action as per configuration.
+Processes financial data and performs reconciliation.
+Hosts APIs for anomaly detection, matching records, and generating insights.
+Integrates with the OLLAMA  model for automated response generation.
+Processes uploaded files.
+Reads the configuration file dynamically.
+Applies reconciliation logic.
+Uses ML to detect anomalies and AI to generate comments.
+
 
 ## 🛠️ How We Built It
-Briefly outline the technologies, frameworks, and tools used in development.
-
-## 🚧 Challenges We Faced
-Describe the major technical or non-technical challenges your team encountered.
+1. Frontend (Streamlit UI)
+2. Backend (Flask API Server)
+3. Database (postgres) - Create sql attached
+4. Machine Learning (Anomaly Detection)
+5. AI-Powered Chatbot
 
 ## 🏃 How to Run
 1. Clone the repository  
@@ -41,20 +46,23 @@ Describe the major technical or non-technical challenges your team encountered.
    git clone https://github.com/your-repo.git
    ```
 2. Install dependencies  
-   ```sh
-   npm install  # or pip install -r requirements.txt (for Python)
+   ``` pip install -r requirements.txt (for Python)
    ```
+   Requirements file has been placed in the src folder
 3. Run the project  
-   ```sh
-   npm start  # or python app.py
+   ``` python frontend.py
+	   python backend.py
    ```
 
 ## 🏗️ Tech Stack
-- 🔹 Frontend: React / Vue / Angular
-- 🔹 Backend: Node.js / FastAPI / Django
-- 🔹 Database: PostgreSQL / Firebase
-- 🔹 Other: OpenAI API / Twilio / Stripe
+- 🔹 Frontend: Streamlit Python Api
+- 🔹 Backend: Flask Python Api
+- 🔹 Database: PostgreSQL
+- 🔹 Other: OLLAMA Model
 
 ## 👥 Team
-- **Your Name** - [GitHub](#) | [LinkedIn](#)
-- **Teammate 2** - [GitHub](#) | [LinkedIn](#)
+- **Mariappan**
+- **Rajesh** 
+- **Swarna**
+- **Palraj**
+- **Prabhu**
