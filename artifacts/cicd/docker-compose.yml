@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: reconciliation_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: reconciliation_app
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+      - "8501:8501"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: reconciliation_db
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+
+volumes:
+  pg_data:

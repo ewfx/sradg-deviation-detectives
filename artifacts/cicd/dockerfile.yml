@@ -1,0 +1,27 @@
+# Use an official Python runtime as a parent image
+FROM python:3.9
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the current directory contents into the container
+COPY . .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expose the ports for Flask (5000) and Streamlit (8501)
+EXPOSE 5000 8501
+
+# Set environment variables for PostgreSQL
+ENV POSTGRES_USER=myuser
+ENV POSTGRES_PASSWORD=mypassword
+ENV POSTGRES_DB=reconciliation_db
+ENV POSTGRES_HOST=db
+ENV POSTGRES_PORT=5432
+
+# Update DB URL in backend configuration
+RUN sed -i "s|postgresql://myuser:mypassword@localhost:5432/reconciliation_db|postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/$POSTGRES_DB|g" backend.py
+
+# Run both the backend and frontend
+CMD ["sh", "-c", "python backend.py & streamlit run frontend.py --server.port=8501 --server.address=0.0.0.0"]
